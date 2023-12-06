@@ -36,21 +36,21 @@ const generatePassword = () => {
     len = prompt("Please select a length between 8 and 128")
   }
   if(isUpper.toLocaleLowerCase() === 'n' && isLower.toLocaleLowerCase() === 'n' && isNumeric.toLocaleLowerCase() === 'n' && isSpecial.toLocaleLowerCase() === 'n'){
-    alert("Cannot generate a password with no characters.")
-    return ""
+    alert("Cannot generate a password with no character types. Please click the generate password button again.")
+    return "";
   }else{
     let password = ""
     let characterPool = []
-    if(isUpper){
+    if(isUpper.toLocaleLowerCase() === 'y'){
       characterPool = characterPool.concat(upper)
     }
-    if(isLower){
+    if(isLower.toLocaleLowerCase() === 'y'){
       characterPool = characterPool.concat(lower)
     }
-    if(isNumeric){
+    if(isNumeric.toLocaleLowerCase() === 'y'){
       characterPool = characterPool.concat(numeric)
     }
-    if(isSpecial){
+    if(isSpecial.toLocaleLowerCase() === 'y'){
       characterPool = characterPool.concat(special)
     }
     for(i = 0; i < len; i++){
