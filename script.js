@@ -56,7 +56,6 @@ const generatePassword = () => {
     for(i = 0; i < len; i++){
       password += characterPool[Math.floor(Math.random() * characterPool.length)]
     }
-    //console.log(password)
     return(password)
   }
 }
