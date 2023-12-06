@@ -35,6 +35,30 @@ const generatePassword = () => {
   while(len < 8 || len > 128){
     len = prompt("Please select a length between 8 and 128")
   }
+  if(isUpper.toLocaleLowerCase() === 'n' && isLower.toLocaleLowerCase() === 'n' && isNumeric.toLocaleLowerCase() === 'n' && isSpecial.toLocaleLowerCase() === 'n'){
+    alert("Cannot generate a password with no characters.")
+    return ""
+  }else{
+    let password = ""
+    let characterPool = []
+    if(isUpper){
+      characterPool = characterPool.concat(upper)
+    }
+    if(isLower){
+      characterPool = characterPool.concat(lower)
+    }
+    if(isNumeric){
+      characterPool = characterPool.concat(numeric)
+    }
+    if(isSpecial){
+      characterPool = characterPool.concat(special)
+    }
+    for(i = 0; i < len; i++){
+      password += characterPool[Math.floor(Math.random() * characterPool.length)]
+    }
+    //console.log(password)
+    return(password)
+  }
 }
 
 // Add event listener to generate button
